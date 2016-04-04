@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.com/cryptocurrency.owl#"
+     xml:base="http://www.example.com/cryptocurrency.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.com/cryptocurrency.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#amount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#amount">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#balance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#balance">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Account"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#code_hash -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#code_hash">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Contract_Account"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#coin_base -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#coin_base">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#data -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#data">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Normal_Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#difficulty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#difficulty">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#extra_data -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#extra_data">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#gas -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#gas">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#gas_price -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#gas_price">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#init -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#init">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Message_Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#nonce_account -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#nonce_account">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Account"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#nonce_blockheader -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#nonce_blockheader">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#nonce_transaction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#nonce_transaction">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#parent_hash -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#parent_hash">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#r -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#r">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#recipient -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#recipient">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#s -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#s">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#state_root_block -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#state_root_block">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#state_root_transaction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#state_root_transaction"/>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#storage_root -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#storage_root">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Contract_Account"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#timestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#timestamp">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#transaction_hash -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#transaction_hash">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#uncle_hash -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#uncle_hash">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#v -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.com/cryptocurrency.owl#v">
+        <rdfs:domain rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Account -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Account"/>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Block -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Block"/>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#BlockHeader -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Contract_Account -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Contract_Account">
+        <rdfs:subClassOf rdf:resource="http://www.example.com/cryptocurrency.owl#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Externally_Owned_Account -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Externally_Owned_Account">
+        <rdfs:subClassOf rdf:resource="http://www.example.com/cryptocurrency.owl#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Message_Transaction -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Message_Transaction">
+        <rdfs:subClassOf rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Normal_Transaction -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Normal_Transaction">
+        <rdfs:subClassOf rdf:resource="http://www.example.com/cryptocurrency.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.com/cryptocurrency.owl#Transaction -->
+
+    <owl:Class rdf:about="http://www.example.com/cryptocurrency.owl#Transaction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.example.com/cryptocurrency.owl#Account"/>
+            <rdf:Description rdf:about="http://www.example.com/cryptocurrency.owl#Block"/>
+            <rdf:Description rdf:about="http://www.example.com/cryptocurrency.owl#BlockHeader"/>
+            <rdf:Description rdf:about="http://www.example.com/cryptocurrency.owl#Transaction"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi -->
+
