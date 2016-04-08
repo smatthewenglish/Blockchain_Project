@@ -7,4 +7,5 @@
 * [Overv.io](https://overv.io/workspace/s-matthew-english/kind-goldfish/board/)
 
 * [Semantic Web on the Blockchain](https://semanticblocks.wordpress.com/)
+
 Blog by Héctor about general project concepts inter alia. 
