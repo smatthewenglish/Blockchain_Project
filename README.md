@@ -5,3 +5,5 @@
 * [Conference Paper](https://www.sharelatex.com/project/5673423b30638e000860f810)
 
 * [Overv.io](https://overv.io/workspace/s-matthew-english/kind-goldfish/board/)
+
+* [Semantic Web on the Blockchain](https://semanticblocks.wordpress.com/)
