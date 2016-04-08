@@ -8,4 +8,4 @@
 
 * [Semantic Web on the Blockchain](https://semanticblocks.wordpress.com/)
 
-Blog by Héctor about general project concepts inter alia. 
+~~Blog by Héctor about general project concepts inter alia. 
