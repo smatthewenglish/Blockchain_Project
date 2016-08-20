@@ -107,7 +107,12 @@ d3.json("readme-flare-imports.json", function(error, classes) {
 
 function mouseovered(d) {
   node
-      .each(function(n) { n.target = n.source = false; });
+      .each(function(n) { n.target = n.source = false; })
+       //adding more info to names
+      .append("svg:title")
+      .text(function(d) { return "btc_address: " + d.btc_address + "\n" +
+                                 "size: " + d.size;
+                        });
 
   link
       .classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
@@ -118,6 +123,7 @@ function mouseovered(d) {
   node
       .classed("node--target", function(n) { return n.target; })
       .classed("node--source", function(n) { return n.source; });
+
 }
 
 function mouseouted(d) {
