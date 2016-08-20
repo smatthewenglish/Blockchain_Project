@@ -1,0 +1,8 @@
+[
+{"name":"Firas","size":666,"imports":[]},
+{"name":"Matthew","size":3812,"imports":["Firas"]},
+{"name":"Yulia","size":666,"imports":["Firas", "Matthew"]},
+{"name":"Hector","size":3812,"imports":["Ernane"]},
+{"name":"Ernane","size":666,"imports":["Maria-Esther", "Firas"]},
+{"name":"Maria-Esther","size":3812,"imports":["Yulia"]}
+]
