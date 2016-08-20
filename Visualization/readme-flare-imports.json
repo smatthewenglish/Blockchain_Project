@@ -1,8 +1,6 @@
 [
-{"name":"Firas","size":666,"imports":[]},
-{"name":"Matthew","size":3812,"imports":["Firas"]},
-{"name":"Yulia","size":666,"imports":["Firas", "Matthew"]},
-{"name":"Hector","size":3812,"imports":["Ernane"]},
-{"name":"Ernane","size":666,"imports":["Maria-Esther", "Firas"]},
-{"name":"Maria-Esther","size":3812,"imports":["Yulia"]}
+{"name":"Firas","btc_address":"111","size":0,"imports":[]},
+{"name":"Matthew","btc_address":"112","size":0,"imports":["123"]},
+{"name":"Yulia","btc_address":"333","size":0,"imports":["111", "333"]},
+{"name":"Hector","btc_address":"123","size":0,"imports":["111","333","112"]}
 ]

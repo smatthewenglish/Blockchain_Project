@@ -58,7 +58,7 @@ var diameter = 960,
 var cluster = d3.layout.cluster()
     .size([360, innerRadius])
     .sort(null)
-    .value(function(d) { console.log(d.size); return d.size; });
+    .value(function(d) { return d.size; });
 
 
 
@@ -88,7 +88,7 @@ d3.json("readme-flare-imports.json", function(error, classes) {
   link = link
       .data(bundle(links))
     .enter().append("path")
-      .each(function(d) { d.source = d[0], d.target = d[d.length - 1]; })
+      .each(function(d) { d.source = d[0], d.target = d[d.length - 1]; console.log(d) })
       .attr("class", "link")
       .attr("d", line);
 
@@ -99,7 +99,8 @@ d3.json("readme-flare-imports.json", function(error, classes) {
       .attr("dy", ".31em")
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
       .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
-      .text(function(d) { return d.key; })
+      //Here is where you set the display name, i.e. "d.name"
+      .text(function(d) { return d.name; })
       .on("mouseover", mouseovered)
       .on("mouseout", mouseouted);
 });
@@ -135,23 +136,21 @@ d3.select(self.frameElement).style("height", diameter + "px");
 function packageHierarchy(classes) {
   var map = {};
 
-  //console.log(classes)
-
-  function find(name, data) {
-    var node = map[name], i;
+  function find(btc_address, data) {
+    var node = map[btc_address], i;
     if (!node) {
-      node = map[name] = data || {name: name, children: []};
-      if (name.length) {
-        node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
+      node = map[btc_address] = data || {btc_address: btc_address, name: name, test: "test", children: []};
+      if (btc_address.length) {
+        node.parent = find(btc_address.substring(0, i = btc_address.lastIndexOf(".")));
         node.parent.children.push(node);
-        node.key = name.substring(i + 1);
+        node.key = btc_address.substring(i + 1);
       }
     }
     return node;
   }
 
   classes.forEach(function(d) {
-    find(d.name, d);
+    find(d.btc_address, d);
   });
 
 
@@ -166,13 +165,13 @@ function packageImports(nodes) {
 
   // Compute a map from name to node.
   nodes.forEach(function(d) {
-    map[d.name] = d;
+    map[d.btc_address] = d;
   });
 
   // For each import, construct a link from the source to target node.
   nodes.forEach(function(d) {
     if (d.imports) d.imports.forEach(function(i) {
-      imports.push({source: map[d.name], target: map[i]});
+      imports.push({source: map[d.btc_address], target: map[i]});
     });
   });
 
