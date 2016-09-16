@@ -12,5 +12,5 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 for user in tweepy.Cursor(api.followers, screen_name= sys.argv[1] ).items():
-    print(user.screen_name)
+    print(user.screen_name + ", " + user.name)
 
