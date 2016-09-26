@@ -18,8 +18,10 @@ from django.contrib import admin
 from . import views
 from api import addTx2graph
 
+app_name='overview'
 urlpatterns = [
     url(r'^$',views.index,name='index'),
     url(r'^app/add2Graph/$',addTx2graph, name='add2graph'),
+    url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
 ]

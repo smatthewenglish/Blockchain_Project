@@ -113,7 +113,7 @@
 		  </div>
 	</header>
 
-	<section  id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
+	<section  id="fh5co-home" data-section="home" style="background-image: url({% static 'images/full_image_2.jpg'%});" data-stellar-background-ratio="0.5">
 		<div class="gradient"></div>
 		<div class="container">
 			<div class="text-wrap">
@@ -133,7 +133,7 @@
 	<section id="fh5co-intro">
 		<div class="container">
 			<div class="row row-bottom-padded-lg">
-				<div class="fh5co-block to-animate" style="background-image: url(images/img_7.jpg);">
+				<div class="fh5co-block to-animate" style="background-image: url({% static 'images/img_7.jpg'%});">
 					<div class="overlay-darker"></div>
 					<div class="overlay"></div>
 					<div class="fh5co-text">
@@ -143,7 +143,7 @@
 						<p><a href="#" class="btn btn-primary">Get In Touch</a></p>
 					</div>
 				</div>
-				<div class="fh5co-block to-animate" style="background-image: url(images/img_8.jpg);">
+				<div class="fh5co-block to-animate" style="background-image: url({% static 'images/img_8.jpg'%});">
 					<div class="overlay-darker"></div>
 					<div class="overlay"></div>
 					<div class="fh5co-text">
@@ -153,7 +153,7 @@
 						<p><a href="#" class="btn btn-primary">Click Me</a></p>
 					</div>
 				</div>
-				<div class="fh5co-block to-animate" style="background-image: url(images/img_10.jpg);">
+				<div class="fh5co-block to-animate" style="background-image: url({% static 'images/img_10.jpg'%});">
 					<div class="overlay-darker"></div>
 					<div class="overlay"></div>
 					<div class="fh5co-text">
@@ -375,7 +375,12 @@
 
 				<div style="overflow:hidden" class="col-md-6 col-sm-6 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-video2"></i>
-					<h3>On the fly Transaction</h3>
+					<div>
+                        {% if request.user.is_staff or request.user.is_superuser %}
+                        <input id="record"class="btn btn-primary" style="float: right" type="button" value="Record">
+                        <input id="stoprecord"class="btn btn-primary" style="display:none;float: right" type="button" value="Stop">
+                        {% endif %}
+                        <h3>On the fly Transaction</h3></div>
 					<!-- Modernizr JS -->
 					<div style="height:100px;overflow:hidden;background-color: inherit; ">
 						<table id="myTable" class="table" style="text-align:right;table-layout: fixed;background-color: inherit;border-collapse: collapse;">{% csrf_token %}
@@ -472,7 +477,7 @@
 		</div>
 	</section>
 
-	<section id="fh5co-counters" style="background-image: url(images/full_image_1.jpg);" data-stellar-background-ratio="0.5">
+	<section id="fh5co-counters" style="background-image: url({% static 'images/full_image_1.jpg'%});" data-stellar-background-ratio="0.5">
 		<div class="fh5co-overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -629,6 +634,7 @@
 	<!-- On the Fly Script -->
  <script src="https://blockexplorer.com/socket.io/socket.io.js"></script>
   <script>
+    var Record=false
     eventToListenTo = 'tx'
     room = 'inv'
 
@@ -648,11 +654,12 @@
 	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
     var cell1 = row.insertCell(0);
 	var cell2 = row.insertCell(1);
-	cell1.innerHTML = data.txid;
+    var url_mask = "{% url 'transaction:transactionGraph' transaction_hsh='f684914938dedf40b64eaaeccddfed6e9a830b3f2505aa576b826593d43391cc' %}".replace(/f684914938dedf40b64eaaeccddfed6e9a830b3f2505aa576b826593d43391cc/, data.txid.toString());
+	cell1.innerHTML = "<a href='"+url_mask+"' >"+data.txid+"</a>";
 	cell2.innerHTML = (data.valueOut+" BTC");
 	 $('#myTable').trigger('rowAdd');
-
-	$.ajax({
+    if (Record){
+    $.ajax({
 		type:'POST',
 		url:'/overview/app/add2Graph/',
 		data:{
@@ -663,7 +670,17 @@
 		console.log(result)
 		}
 	});
-	
+    }
+    $("#record").click(function(){
+        Record=true
+        $("#record").css("display","none")
+        $("#stoprecord").css("display","")
+    });
+	$("#stoprecord").click(function(){
+        Record=false
+        $("#record").css("display","")
+        $("#stoprecord").css("display","none")
+    });
     })
 	
   </script>
