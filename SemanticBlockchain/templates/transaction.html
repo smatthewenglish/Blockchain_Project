@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<html>
+<head>
+
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+<link rel="stylesheet" href="{% static 'css/codemirror-neo.css' %}">
+<link rel="stylesheet" href="{% static 'css/cy2neo.css' %}">
+<link rel="stylesheet" href="{% static 'css/neod3.css' %}">
+<link rel="stylesheet" href="{% static 'css/datatable.css' %}">
+<link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+<link rel="stylesheet" href="{% static 'css/sweet-alert.css' %}">
+
+<title>Transaction - {{transaction_hash}}</title>
+</head>
+<body>
+
+<h3>Transaction - {{transaction_hash}}</h3>
+
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#graph" aria-controls="home" role="tab" data-toggle="tab">Graph</a></li>
+    <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="graph">
+    	<div class="tab-pane active" id="graph">&nbsp;</div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="table">
+    	<div id="datatable"></div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<script src="{% static 'js/codemirror.js'%}"></script>
+ <script src="{% static 'js/codemirror-cypher.js'%}"></script>
+<script src="{% static 'js/vendor.js'%}"></script>
+<script src="{% static 'js/sweet-alert.min.js'%}"></script>
+<script src="{% static 'js/neod3.js'%}"></script>
+<script src="{% static 'js/neod3-visualization.js'%}"></script>
+<script src="{% static 'js/neo4d3.js'%}"></script>
+<script src="{% static 'js/cy2neod3.js'%}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js'%}"></script>
+<script src="{% static 'js/cypher.datatable.js'%}"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+		//todo dynamic configuration
+  		var config = {}
+  	    var connection = function() {
+          return {
+            url:"http://46.101.180.63:7474",
+            user:"neo4j",
+            pass:"uni-bonn"};
+        }
+
+  		  new Cy2NeoD3(config,"graph","datatable", "{{transaction_hash}}", connection , true);
+	  });
+</script>
+</body>
+</html>
