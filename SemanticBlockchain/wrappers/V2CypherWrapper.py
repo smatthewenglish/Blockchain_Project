@@ -22,9 +22,9 @@ def get_Transactions(userAddress):
     for transaction in userAddress['transactions']:
         Bitcoinexplorer_Api="https://blockexplorer.com/api/tx/"+transaction
         Transactioninfo=requests.get(Bitcoinexplorer_Api, headers = {"accept":"application/json"}).json()
-        transactions.append(Transactioninfo)          
+        transactions.append(Transactioninfo)
     return transactions
-       
+
 def relInAdresses2transaction(tx,intx,graph):
     # Build query
     query = """
@@ -44,10 +44,10 @@ def addBlocks2graph(blockinfo,graph):
     """
     # Send Cypher query.
     graph.run(query,blockinfo=blockinfo)
-    
 
-    
-def addInputAddresses(tx,graph):    
+
+
+def addInputAddresses(tx,graph):
     for intx in tx['vin']:
         inAddress=intx['addr']
         addr=get_BTCAddress(inAddress,False)
@@ -67,7 +67,7 @@ def addInputAddresses(tx,graph):
    # graph.run(query,json=Persons)
    # return True
 
-        
+
 def add_Person2Graph(Person,graph):
     # Build query
     query = """
@@ -83,7 +83,7 @@ def add_Addrress2Graph(Addr,graph):
     # Build query
     query = """
     WITH {json} as q
-    MERGE (btc:BTC_Address {address:q['addrStr']}) ON CREATE 
+    MERGE (btc:BTC_Address {address:q['addrStr']}) ON CREATE
     SET btc.balance = q['balance'],btc.totalSent = q['totalSent'],btc.totalReceived = q['totalReceived'],btc.unconfirmedBalance = q['unconfirmedBalance']
     """
     # Send Cypher query.
@@ -95,7 +95,7 @@ def add_Addrresses2Graph(Addr,graph):
     query = """
     WITH {json} as data
     UNWIND data as q
-    MERGE (btc:BTC_Address {address:q['addrStr']}) ON CREATE 
+    MERGE (btc:BTC_Address {address:q['addrStr']}) ON CREATE
     SET btc.balance = q['balance'],btc.totalSent = q['totalSent'],btc.totalReceived = q['totalReceived'],btc.unconfirmedBalance = q['unconfirmedBalance']
     """
 def add_Transaction2Graph(tx,graph):
@@ -106,11 +106,12 @@ def add_Transaction2Graph(tx,graph):
     SET tx.version=q['version'],
     tx.locktime=q['locktime'],
     tx.confirmations=q['confirmations'],
-    tx.valueOut=q['valueOut'], 
+    tx.valueOut=q['valueOut'],
     tx.size=q['size'],
     tx.valueIn=q['valueIn'],
     tx.fees=q['fees']
     """
+    # add time property integer
     # Send Cypher query.
     graph.run(query,tx=tx)
     return True
@@ -132,7 +133,7 @@ def rel_Person2Address(person,addr,graph):
     """
     # Send Cypher query.
     graph.run(query,person=person,addr=addr)
-    return True    
+    return True
 
 def relOutAdresses2transaction(tx,addr,outx,graph):
     # Build query
@@ -143,8 +144,8 @@ def relOutAdresses2transaction(tx,addr,outx,graph):
     """
     # Send Cypher query.
     graph.run(query,tx=tx,outx=outx,addr=addr)
-    
-def addOutputAddresses(tx,graph):    
+
+def addOutputAddresses(tx,graph):
     for outx in tx['vout']:
         outAddresses=outx['scriptPubKey']['addresses']
         for addr in outAddresses:

@@ -150,7 +150,7 @@
     var previewFrame = document.getElementById('preview');
     var preview =  previewFrame.contentDocument || previewFrame.contentWindow.document;
 
-  var test = document.getElementById('test');
+  var test = document.getElementById('rdf-semantic');
 
     preview.open();
     preview.write(test.innerHTML);
@@ -172,7 +172,7 @@
     play.turtleOutputDisplay.setValue(turtle);
     //play.ntriplesOutputDisplay.setValue(tLite);
     play.viz.redraw(d3Nodes);
-  
+
   };
 
   /**
