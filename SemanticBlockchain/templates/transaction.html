@@ -72,24 +72,17 @@ svg {
                   </tr>
                   <tr>
                     <td width="500px">
-                      <a href="/address/1QJdZMTEGSBjks8bFDJ8CLPyvJ6HCB4HK5">
-                        1QJdZMTEGSBjks8bFDJ8CLPyvJ6HCB4HK5
-                      </a>
+                      <a href="/address/{{senders.address}}">{{senders.address}}</a>
                       <br>
                     </td>
+
                     <td class="hidden-phone" style="padding:4px;text-align:center;vertical-align:middle;" width="48px">
                       <img src="https://blockchain.info/Resources/arrow_right_green.png">
                     </td>
-                    <td>
-                      <a href="/address/15hUJ6gvvdWishnHxWjLiGh8WWnFgc1Mvb">
-                        15hUJ6gvvdWishnHxWjLiGh8WWnFgc1Mvb
-                      </a>
-                      <span class="pull-right hidden-phone"> 0.00062674 BTC </span>
-                      <br>
-                      <a href="/address/1N9VCGZ2UZtV6NxU6RRVrxQj4hiksiQXUK">
-                        1N9VCGZ2UZtV6NxU6RRVrxQj4hiksiQXUK
-                      </a>
-                        <span class="pull-right hidden-phone"> 0.05969192 BTC </span>
+
+                      <td>
+                        <a href="/address/{{receivers.address}}">{{receivers.address}}</a>
+                        <span class="pull-right hidden-phone"> {{inputs.value}} BTC </span>
                         <br>
                       </td>
                     </tr>
@@ -143,7 +136,7 @@ svg {
                         </tr>
                         <tr>
                             <td>fees</td>
-                            <td property="sb:fees" datatype="xsd:float">{{transaction.fees}}</td>
+                            <td property="sb:fees" datatype="xsd:float">{{transaction.fees}} BTC</td>
                         </tr>
                         <!-- <tr>
                             <td>Estimated BTC Transacted</td>
