@@ -4,12 +4,18 @@
 
 <link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
 <link rel="stylesheet" href="{% static 'css/codemirror-neo.css' %}">
-<link rel="stylesheet" href="{% static 'css/cy2neo.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/cy2neo.css' %}"> -->
 <link rel="stylesheet" href="{% static 'css/neod3.css' %}">
 <link rel="stylesheet" href="{% static 'css/datatable.css' %}">
 <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
 <link rel="stylesheet" href="{% static 'css/sweet-alert.css' %}">
 
+<style>
+svg {
+    height: 100%;
+    width: 100%;
+}
+</style>
 <title>Transaction - {{transaction_hash}}</title>
 </head>
 <body>
@@ -20,26 +26,196 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#graph" aria-controls="home" role="tab" data-toggle="tab">Graph</a></li>
-    <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
+    <li role="presentation" class="active">
+      <a href="#graph-neo" aria-controls="home" role="tab" data-toggle="tab">Graph</a>
+    </li>
+    <li role="presentation">
+      <a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a>
+    </li>
+
+
+    <li role="presentation">
+      <a href="#rdf" aria-controls="rdf" role="tab" data-toggle="tab">RDF</a>
+    </li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="graph">
-    	<div class="tab-pane active" id="graph">&nbsp;</div>
+    <div role="tabpanel" class="tab-pane active" id="graph-neo">
+    	<div class="tab-pane active" id="graph-neo">&nbsp;</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="table">
     	<div id="datatable"></div>
     </div>
-  </div>
+    <div role="tabpanel" class="tab-pane" id="rdf">
+    	<div id="rdf">
+            <div class="container">
+
+            <h1>Transaction
+                <small>View information about a bitcoin transaction</small>
+            </h1>
+
+            <div id="tx-182724763" class="txdiv">
+              <table class="table table-striped" style="padding:0px;float:left;margin:0px;width:100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <th  align="left">
+                      Sending Addresses
+
+                    </th>
+                    <th  align="left"></th>
+                    <th  align="left">
+                      Receiving Addresses
+
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="txtd hidden-phone" width="500px">
+                      <a href="/pt/address/1QJdZMTEGSBjks8bFDJ8CLPyvJ6HCB4HK5">
+                        1QJdZMTEGSBjks8bFDJ8CLPyvJ6HCB4HK5
+                      </a>
+                      <br>
+                    </td>
+                    <td class="hidden-phone" style="padding:4px;text-align:center;vertical-align:middle;" width="48px">
+                      <img src="https://blockchain.info/Resources/arrow_right_green.png">
+                    </td>
+                    <td class="txtd">
+                      <a href="/pt/address/15hUJ6gvvdWishnHxWjLiGh8WWnFgc1Mvb">
+                        15hUJ6gvvdWishnHxWjLiGh8WWnFgc1Mvb
+                      </a>
+                      <span class="pull-right hidden-phone"> 0.00062674 BTC </span>
+                      <br>
+                      <a href="/pt/address/1N9VCGZ2UZtV6NxU6RRVrxQj4hiksiQXUK">
+                        1N9VCGZ2UZtV6NxU6RRVrxQj4hiksiQXUK
+                      </a>
+                        <span class="pull-right hidden-phone"> 0.05969192 BTC </span>
+                        <br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div style="width:100%;text-align:right;clear:both">
+                    <h4 >TOTAL: 0.06031866 BTC</h4>
+                </div>
+              </div>
+
+            <div class="row-fluid">
+                <div class="span6">
+                    <table class="table table-striped">
+                        <tbody><tr>
+                            <th colspan="2">Summary</th>
+                        </tr>
+                        <tr>
+                            <td>Size</td>
+                            <td>226 (bytes)</td>
+                        </tr>
+                        <tr>
+                            <td>Included In Blocks</td>
+                            <td><a href="/block-index/1157664">434734</a> </td>
+                        </tr>
+                        <tr>
+                            <td>Received Time</td>
+                            <td>2016-10-17 18:59:39</td>
+                        </tr>
+
+                        <tr>
+                            <td>Visualize</td>
+                            <td><a href="/pt/tree/182724763"> 	View Tree Chart</a></td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                    <div class="span6">
+                        <table class="table table-striped">
+                            <tbody><tr>
+                                <th colspan="2">Inputs and Outputs</th>
+                            </tr>
+                            <tr>
+                                <td>Total Input</td>
+                                <td>
+                                    <span data-c="6044296" data-time="1476730779000">0.06044296 BTC</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Total Output</td>
+                                <td>
+                                    <span data-c="6031866" data-time="1476730779000">0.06031866 BTC</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fees</td>
+                                <td>
+                                    <span data-c="12430" data-time="1476730779000">0.0001243 BTC</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Estimated BTC Transacted</td>
+                                <td>
+                                    <span data-c="62674" data-time="1476730779000">0.00062674 BTC</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                      </table>
+
+  <!-- teste -->
+                    <div id=test >
+
+                      <span vocab="http://schema.org/" typeof="TechArticle">
+                         <a property="url" href="http://www.w3.org/TR/rdfa-primer/">
+                            <span property="name">RDFa 1.1 Primer</span></a>.
+                      </span>
+                    </div>
+
+                    </div> <!--  span6 -->
+
+
+              <div class="span6">
+                <h1>RDF
+                    <small>View information about a bitcoin transaction as RDF Turtle</small>
+                </h1>
+
+
+                    <iframe id=preview sandbox="allow-same-origin" style="display:none"></iframe> -->
+
+                      <div id="permalink"></div>
+                      <div id="markup-errors" class="errors"></div>
+                      <div id="param-errors" class="errors"></div>
+                      <div id="processing-errors" class="errors"></div>
+
+                      <textarea id="turtleOutputDisplay"></textarea>
+
+                </div>
+
+              <div class="span6">
+                <h1>RDF Graph
+                    <small>View information about a bitcoin transaction as RDF Graph</small>
+                </h1>
+
+                <div id="graph"></div>
+              </div> <!--  span6 -->
+
+            </div> <!--  row-fluid -->
+          </div> <!--  container -->
+    	  </div><!--  rdf -->
+      </div><!--  tablepanel rdf -->
 
 
 
-</div>
 
-<script src="{% static 'js/codemirror.js'%}"></script>
- <script src="{% static 'js/codemirror-cypher.js'%}"></script>
+
+
+
+
+
+
+
+  </div><!--  tab-content -->
+</div> <!--  tablepanel -->
+
+<!-- <script src="{% static 'js/codemirror.js'%}"></script> -->
+ <!-- <script src="{% static 'js/codemirror-cypher.js'%}"></script> -->
 <script src="{% static 'js/vendor.js'%}"></script>
 <script src="{% static 'js/sweet-alert.min.js'%}"></script>
 <script src="{% static 'js/neod3.js'%}"></script>
@@ -49,6 +225,15 @@
 <script src="{% static 'js/jquery.dataTables.min.js'%}"></script>
 <script src="{% static 'js/cypher.datatable.js'%}"></script>
 
+<!-- rdf play  -->
+
+
+<script type="text/javascript" src="{% static 'js/codemirror-compressed.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/codemirror-turtle.js'%}"></script>
+<!-- <script type="text/javascript" src="{% static 'js/d3.v2.min.js'%}"></script> -->
+<script type="text/javascript" src="{% static 'js/RDFa.min.1.1.0.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/play.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/visualization.js'%}"></script>
 
 
 <script type="text/javascript">
@@ -62,7 +247,7 @@
             pass:"uni-bonn"};
         }
 
-  		  new Cy2NeoD3(config,"graph","datatable", "{{transaction_hash}}", connection , true);
+  		  new Cy2NeoD3(config,"graph-neo","datatable", "{{transaction_hash}}", connection , true);
 	  });
 </script>
 </body>
