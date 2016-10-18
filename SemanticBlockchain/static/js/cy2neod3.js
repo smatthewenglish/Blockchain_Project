@@ -13,7 +13,8 @@ function Cy2NeoD3(config, graphId, tableId, transaction_hash ,urlSource, renderG
           query += "MATCH (m:Transaction)-[x:Outputs_to]->(p:BTC_Address) \n";
           query += "where p<>n AND m.hsh='"+transaction_hash+"' \n";
           query += "Optional MATCH (a:Person)-[h:HAS]->(p) \n";
-          query += "RETURN n,r,m,x,p,a  \n";
+          query += "Optional MATCH (a:Person)-[has:HAS]->(n) \n";
+          query += "RETURN n,r,m,x,p,a,h,has  \n";
           query += "LIMIT 50;  \n";
 
       // var query = editor.getValue();
